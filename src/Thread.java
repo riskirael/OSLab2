@@ -1,12 +1,33 @@
+import java.util.ArrayList;
+
 public class Thread {
 
-    final int time;
-    private int ostTime;
+    private ArrayList<Process> process;
+
     private String name;
 
+    private int priority;
+
     public Thread() {
-        time = (int) (Math.random() * 200) + 1;
-        ostTime = time;
+
+        int k = (int) (Math.random() * 4) + 1;
+        process = new ArrayList<Process>();
+        for (int i = 0; i < k; i++) {
+            process.add(new Process());
+            int n = i + 1;
+            process.get(i).setName(n + "");
+        }
+
+        k = (int) (Math.random() * 1000);
+        if (k < 250) {
+            priority = 1;
+        } else if (k < 500) {
+            priority = 2;
+        } else if (k < 750) {
+            priority = 3;
+        } else {
+            priority = 4;
+        }
     }
 
     public String getName() {
@@ -17,16 +38,16 @@ public class Thread {
         name = n;
     }
 
-    public int getTime() {
-        return time;
+    public ArrayList<Process> getProcesses() {
+        return process;
     }
 
-    public int getOstTime() {
-        return ostTime;
+    public void setThreads(ArrayList<Process> p) {
+        process = p;
     }
 
-    public void setOstTime(int t) {
-        ostTime = t;
+    public int getPriority() {
+        return priority;
     }
 
 }

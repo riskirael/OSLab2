@@ -2,32 +2,13 @@ import java.util.ArrayList;
 
 public class Process {
 
-    private ArrayList<Thread> threads;
-
+    final int time;
+    private int ostTime;
     private String name;
 
-    private int priority;
-
     public Process() {
-
-        int k = (int) (Math.random() * 4) + 1;
-        threads = new ArrayList<Thread>();
-        for (int i = 0; i < k; i++) {
-            threads.add(new Thread());
-            int n = i + 1;
-            threads.get(i).setName(n + "");
-        }
-
-        k = (int) (Math.random() * 1000);
-        if (k < 250) {
-            priority = 1;
-        } else if (k < 500) {
-            priority = 2;
-        } else if (k < 750) {
-            priority = 3;
-        } else {
-            priority = 4;
-        }
+        time = (int) (Math.random() * 200) + 1;
+        ostTime = time;
     }
 
     public String getName() {
@@ -38,16 +19,16 @@ public class Process {
         name = n;
     }
 
-    public ArrayList<Thread> getThreads() {
-        return threads;
+    public int getTime() {
+        return time;
     }
 
-    public void setThreads(ArrayList<Thread> t) {
-        threads = t;
+    public int getOstTime() {
+        return ostTime;
     }
 
-    public int getPriority() {
-        return priority;
+    public void setOstTime(int t) {
+        ostTime = t;
     }
 
 }

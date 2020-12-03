@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Process {
 
     final int time;
-    private int ostTime;
+    public static int ostTime;
     private String name;
 
     public Process() {
@@ -23,7 +23,7 @@ public class Process {
         return time;
     }
 
-    public int getOstTime() {
+    public static int getOstTime() {
         return ostTime;
     }
 
